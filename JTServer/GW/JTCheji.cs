@@ -3,6 +3,7 @@ using JX;
 using SQ.Base;
 using SQ.Base.GW;
 using SQ.Base.Queue;
+using StackExchange.Redis;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -1287,6 +1288,16 @@ namespace JTServer.GW
         {
             var gps = JTGPSInfo.NewEntity(bGps);
             LastGpsInfo = gps;
+            string Gps2Str(JTGPSInfo gps)
+            {
+                string str = "";
+                if (gps != null)
+                {
+                    str += gps.GPS.Longitude + "," + gps.GPS.Latitude + "," + gps.GPS.Gpsdate;
+                }
+                return str;
+            }
+            cl.MyTask.RedisHelper.StringSet("LastPoint:" + SimKey, Gps2Str(gps));
             SendDefaultAnswer(head);
         }
 

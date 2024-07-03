@@ -20,7 +20,7 @@ RUN dotnet publish "808GW.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 VOLUME /MyData
-#更改时区
+#鏇存敼鏃跺尯
 RUN /bin/sh -c 'ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime'
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "808GW.dll"]
