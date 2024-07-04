@@ -10,7 +10,10 @@
 
 ## 经纬度数据
 
-最新位置数据已写入redis，key为：`LastPoint:SIM卡号`，值为字符串：`111693424,40836448,07/03/2024 16:05:49` `lng,lat,datetime` 经纬度需要除以 `1000000.0` 后使用
+最新位置数据已写入redis，key为：`LastPoint:SIM卡号`，值为字符串：
+`Error11,1,111.693424,40.836448,22,0,2,07/04/2024 16:07:49`
+`err,state_code,lng,lat,alt,speed,direction,datetime`
+`报警标志,状态,纬度,经度,高程,速度,方向,时间`
 
 
 ## TODO?

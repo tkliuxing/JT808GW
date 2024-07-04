@@ -1292,8 +1292,10 @@ namespace JTServer.GW
             {
                 string str = "";
                 if (gps != null)
-                {
-                    str += gps.GPS.Longitude + "," + gps.GPS.Latitude + "," + gps.GPS.Gpsdate;
+                {   
+                    str += gps.GPS.AlarmData + "," + gps.GPS.GPSState.ToString() + ",";
+                    str += gps.GPS.Longitude / 1000000d + "," + gps.GPS.Latitude / 1000000d + "," + gps.GPS.Altitude + ",";
+                    str += gps.GPS.Speed + "," + gps.GPS.Heading + "," + gps.GPS.Gpsdate.ToString();
                 }
                 return str;
             }
